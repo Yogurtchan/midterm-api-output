@@ -11,17 +11,21 @@ request.onload = function(){
     var charProfile = charData.map(
         char => {return(
                 {
+                    
                     actor: char.actor,
                     name: char.name,
                     gender: char.gender,
                     species: char.species,
                     house: char.house,
                     patronus: char.patronus,
-                    image: char.image
-                    
+                    image: char.image,
+
                 }
             )
         }
+    // filters characters that don't have an image URL
+    ).filter(
+        img => img.image != ""
     );
     
     // maps character data into charList
